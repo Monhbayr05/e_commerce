@@ -25,7 +25,9 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     })->name('admin.dashboard');
 
     Route::controller(CategoryController::class)->group(function () {
-       Route::get('admin/categories', 'index')->name('admin.categories.index');
+        Route::get('admin/categories', 'index')->name('admin.categories.index');
+        Route::get('admin/categories/create', 'create')->name('admin.categories.create');
+        Route::post('admin/categories', 'store')->name('admin.categories.store');
     });
 
 });
