@@ -13,6 +13,8 @@
             <th>Updated At</th>
             <th>Action</th>
         </tr>
+
+
         </thead>
         <tbody>
         @foreach($categories as $item)

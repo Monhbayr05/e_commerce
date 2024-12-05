@@ -33,6 +33,8 @@ class CategoryController extends Controller
 
             $validatedData['image']='uploads/category/' . $filename;
         }
+
+
         else
         {
             $validatedData['image']=null;
