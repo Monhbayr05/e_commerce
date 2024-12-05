@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
@@ -30,6 +31,11 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
         Route::post('admin/categories', 'store')->name('admin.categories.store');
     });
 
+    Route::controller(BrandController::class)->group(function () {
+       Route::get('admin/brands', 'index')->name('admin.brands.index');
+       Route::get('admin/brands/create', 'create')->name('admin.brands.create');
+       Route::post('admin/brands', 'store')->name('admin.brands.store');
+    });
 });
 
 require __DIR__.'/auth.php';
