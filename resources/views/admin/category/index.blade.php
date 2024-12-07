@@ -28,7 +28,18 @@
                 </td>
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
-                <td></td>
+                <td>
+                    <a href="#" class="btn btn-warning">Edit</a>
+
+                    <form action="#" method="POST"
+                          onsubmit="return confirm('Are you sure you want to delete this category?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
