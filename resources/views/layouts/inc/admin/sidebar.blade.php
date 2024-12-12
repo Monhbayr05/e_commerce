@@ -25,7 +25,7 @@
             </div>
             <a href="{{ route('admin.categories.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
             <a href="{{ route('admin.brands.index') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Brand</a>
-            <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+            <a href="{{route('admin.products.index')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Product</a>
             <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>

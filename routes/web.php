@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,16 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
        Route::get('admin/brands/{id}/edit', 'edit')->name('admin.brands.edit');
        Route::put('admin/brands/{id}', 'update')->name('admin.brands.update');
        Route::delete('admin/brands/{id}', 'destroy')->name('admin.brands.destroy');
+    });
+
+    Route::controller(ProductController::class)->group(function () {
+       Route::get('admin/products', 'index')->name('admin.products.index');
+       Route::get('admin/products/create', 'create')->name('admin.products.create');
+       Route::post('admin/products', 'store')->name('admin.products.store');
+
+       Route::get('admin/products/{id}/edit', 'edit')->name('admin.products.edit');
+       Route::put('admin/products/{id}', 'update')->name('admin.products.update');
+       Route::delete('admin/products/{id}', 'destroy')->name('admin.products.destroy');
     });
 });
 
