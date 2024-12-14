@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductFromRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -116,6 +115,12 @@ class ProductController extends Controller
             'trending' => $request->true ? 1 : 0,
         ]);
         return redirect()->route('admin.products.index')->with('success', 'Product updated successfully');
+    }
+
+    public function image($id){
+        $product = Product::query()->findOrFail($id);
+
+        return view('admin.product.image', compact('product'));
     }
 
     public function destroy($id){

@@ -49,6 +49,10 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
        Route::get('admin/products/{id}/edit', 'edit')->name('admin.products.edit');
        Route::put('admin/products/{id}', 'update')->name('admin.products.update');
        Route::delete('admin/products/{id}', 'destroy')->name('admin.products.destroy');
+
+       Route::get('admin/product/{id}/image', 'image')->name('admin.products.image');
+       Route::post('admin/product/{id}/image', 'imageStore')->name('admin.products.image.store');
+       Route::delete('admin/product/{id}/image', 'imageDestroy')->name('admin.products.image.destroy');
     });
 });
 
