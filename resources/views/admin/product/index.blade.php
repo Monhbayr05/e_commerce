@@ -75,7 +75,11 @@
                                     </button>
                                 </form>
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.products.image', $item->id) }}">
+                                    Product Image
+                                </a>
+                            </li>
                         </ul>
                     </div>
 

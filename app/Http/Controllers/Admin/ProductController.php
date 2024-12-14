@@ -130,6 +130,6 @@ class ProductController extends Controller
             File::delete($destination);
         }
         $product->delete();
-        return redirect()->route('admin.product.index')->with('success', 'Product deleted successfully');
+        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully');
     }
 }
