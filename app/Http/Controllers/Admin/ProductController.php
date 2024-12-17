@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -121,6 +122,41 @@ class ProductController extends Controller
         $product = Product::query()->findOrFail($id);
 
         return view('admin.product.image', compact('product'));
+    }
+
+    public function imageStore(Request $request, $id){
+        $product = Product::query()->findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $uploadPath = 'uploads/product/images/';
+
+            $i = 1;
+            foreach ($request->file('image') as $file) {
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . $i++ . '.' . $extension;
+                $file->move($uploadPath, $filename);
+                $finalImagePathName = $uploadPath . $filename;
+
+                $product->productImages()->create([
+                   'product_id' => $product->id,
+                   'image' => $finalImagePathName,
+                ]);
+            }
+        }
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product image updated successfully');
+    }
+
+    public function imageDestroy($id)
+    {
+        $image = ProductImage::query()->findOrFail($id);
+
+        if(File::exists($image->image)){
+            File::delete($image->image);
+        }
+        $image->delete();
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product image deleted successfully');
     }
 
     public function destroy($id){
