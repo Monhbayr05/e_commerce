@@ -8,6 +8,8 @@
     <title>Document</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -35,6 +37,11 @@
     @yield('content')
 
     @include('layouts.inc.user.footer')
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
 
     <script src="{{ asset('assets/user/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/user/js/jquery.migrate-3.0.0.js') }}"></script>

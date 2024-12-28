@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('user.dashboard');
 });
 
+Route::controller(\App\Http\Controllers\FrontEnd\ProductController::class)->group(function () {
+    Route::get('/', 'index')->name('user.index');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
