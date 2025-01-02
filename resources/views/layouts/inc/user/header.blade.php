@@ -141,11 +141,15 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="all-category">
-                            <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
-                            <ul class="main-category">
+                            <a href="javascript:void(0);" onclick="toggleCategories()" class="d-block text-uppercase fw-bold text-dark" style="text-decoration: none;">
+                                <h3 class="cat-heading">
+                                    <i class="fa fa-bars" aria-hidden="true"></i> CATEGORIES
+                                </h3>
+                            </a>
+                            <ul class="main-category list-unstyled" id="category-list" style="display: none;">
                                 @foreach($categories as $item)
-                                    <li>
-                                        <a href="#category-{{ $item->id }}" data-toggle="tab">
+                                    <li class="mb-2">
+                                        <a href="#category-{{ $item->id }}" class="text-dark" style="text-decoration: none;">
                                             {{ $item->name }}
                                         </a>
                                     </li>
@@ -160,11 +164,10 @@
                                 <div class="navbar-collapse">
                                     <div class="nav-inner">
                                         <ul class="nav main-menu menu navbar-nav">
-                                            <li class="active"><a href="#">Home</a></li>
-                                            <li><a href="#">Product</a></li>
+                                            <li class="active"><a href="{{ route('user.index') }}">Home</a></li>
+                                            <li><a href="{{ route('user.product') }}">Product</a></li>
                                             <li><a href="#">Service</a></li>
-                                            <li><a href="#">Shop<i class="ti-angle-down"></i><span
-                                                        class="new">New</span></a>
+                                            <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
                                                 <ul class="dropdown">
                                                     <li><a href="cart.html">Cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
@@ -190,3 +193,28 @@
     </div>
     <!--/ End Header Inner -->
 </header>
+
+<script>
+    // Add event listeners to all <li> elements
+    document.querySelectorAll('.main-menu li').forEach(function (item) {
+        item.addEventListener('click', function () {
+            // Remove 'active' class from all <li>
+            document.querySelectorAll('.main-menu li').forEach(function (li) {
+                li.classList.remove('active');
+            });
+            // Add 'active' class to clicked <li>
+            this.classList.add('active');
+        });
+    });
+</script>
+
+<script>
+    function toggleCategories() {
+        const categoryList = document.getElementById('category-list');
+        if (categoryList.style.display === 'none' || categoryList.style.display === '') {
+            categoryList.style.display = 'block'; // Жагсаалтыг харуулах
+        } else {
+            categoryList.style.display = 'none'; // Жагсаалтыг хураах
+        }
+    }
+</script>

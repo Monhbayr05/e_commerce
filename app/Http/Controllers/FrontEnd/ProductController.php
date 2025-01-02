@@ -14,8 +14,14 @@ class ProductController extends Controller
         $products = Product::all();
         $categories = Category::all();
         $brands = Brand::all();
-        return view('user.dashboard', compact('products', 'categories', 'brands'));
+        $getRandomProducts = Product::inRandomOrder()->limit(3)->get();
+        return view('user.dashboard', compact('products', 'categories', 'brands', 'getRandomProducts'));
     }
 
-
+    public function showProduct(){
+        $products = Product::all();
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('user.product', compact('products', 'categories', 'brands'));
+    }
 }

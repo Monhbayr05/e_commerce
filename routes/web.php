@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::controller(\App\Http\Controllers\FrontEnd\ProductController::class)->group(function () {
     Route::get('/', 'index')->name('user.index');
+    Route::get('/product', 'showProduct')->name('user.product');
 });
 
 Route::get('/dashboard', function () {

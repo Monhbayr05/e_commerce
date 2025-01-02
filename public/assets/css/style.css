@@ -275,3 +275,71 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+.category-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+/* Product Card */
+.product-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Price Styles */
+.card-text del {
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+/* Badges */
+.new-badge,
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.new-badge {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.discount-badge {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Button Styles */
+.btn-primary {
+    font-size: 0.9rem;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+/* View All Button */
+.btn-outline-primary {
+    font-size: 0.9rem;
+    border-radius: 20px;
+}

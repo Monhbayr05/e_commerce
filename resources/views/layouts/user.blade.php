@@ -30,6 +30,10 @@
     <link href="{{asset('assets/user/css/themify-icons.css')}}" rel="stylesheet">
     <link href="{{asset('assets/user/css/jquery-ui.css')}}" rel="stylesheet">
     <link href="{{asset('assets/user/css/style.css')}}" rel="stylesheet">
+
+{{--    swiper--}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
 </head>
 <body>
     @include('layouts.inc.user.header')
@@ -37,6 +41,8 @@
     @yield('content')
 
     @include('layouts.inc.user.footer')
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
