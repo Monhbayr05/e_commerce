@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 
-class Cart extends Component
+class CartPage extends Component
 {
     public $cartItems = [];
     public $categories;
@@ -38,12 +38,41 @@ class Cart extends Component
         }
     }
 
+    public function updateQuantity($productId, $action)
+    {
+        foreach ($this->cartItems as &$item) {
+            if ($item['id'] === $productId) {
+                if ($action === 'increase') {
+                    $item['quantity']++;
+                } elseif ($action === 'decrease' && $item['quantity'] > 1) {
+                    $item['quantity']--;
+                }
+            }
+        }
 
+        session()->put('cart', $this->cartItems);
+    }
+
+    public function removeFromCart($productId)
+    {
+        $this->cartItems = array_filter($this->cartItems, fn($item) => $item['id'] !== $productId);
+        session()->put('cart', $this->cartItems);
+    }
+
+    public function calculateSubtotal()
+    {
+        return array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $this->cartItems));
+    }
+
+    public function calculateTotal()
+    {
+        return $this->calculateSubtotal();
+    }
 
 
 
     public function render()
     {
-        return view('livewire.cart');
+        return view('livewire.cart-page');
     }
 }

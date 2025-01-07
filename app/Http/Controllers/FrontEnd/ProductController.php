@@ -24,4 +24,11 @@ class ProductController extends Controller
         $brands = Brand::all();
         return view('user.product', compact('products', 'categories', 'brands'));
     }
+
+    public function showCart(){
+        $products = Product::all();
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('user.cart', compact('products', 'categories', 'brands'));
+    }
 }

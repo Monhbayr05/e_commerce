@@ -7,13 +7,18 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('user.dashboard');
 });
 
+
+
+
 Route::controller(\App\Http\Controllers\FrontEnd\ProductController::class)->group(function () {
     Route::get('/', 'index')->name('user.index');
     Route::get('/product', 'showProduct')->name('user.product');
+    Route::get('/cart', 'showCart')->name('user.cart');
 });
 
 Route::get('/dashboard', function () {
