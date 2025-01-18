@@ -66,4 +66,15 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     });
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return redirect()->route('checkout.index');
+    });
+
+    Route::controller(\App\Http\Controllers\OrderController::class)->group(function () {
+        Route::get('/checkout', 'showCheckoutForm')->name('checkout.index');
+        Route::post('/checkout', 'placeOrder')->name('checkout.placeOrder');
+    });
+});
+
 require __DIR__.'/auth.php';

@@ -18,4 +18,12 @@ class Order extends Model
         'total',
         'items',
     ];
+
+    protected $casts = [
+        'items' => 'array',
+    ];
+
+    public function orderItems(){
+        return $this->hasMany(OrderItem::class);
+    }
 }

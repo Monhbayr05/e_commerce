@@ -59,7 +59,7 @@
                                     <li class="last">You Pay<span>${{ number_format($this->calculateTotal(), 2) }}</span></li>
                                 </ul>
                                 <div class="button5">
-                                    <a href="#" class="btn">Checkout</a>
+                                    <a href="{{ route('checkout.index') }}" class="btn">Checkout</a>
                                     <a href="#" class="btn">Continue shopping</a>
                                 </div>
                             </div>
