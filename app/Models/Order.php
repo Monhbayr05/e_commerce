@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
+        'user_id',
         'firstname',
         'lastname',
         'email',
@@ -16,11 +17,6 @@ class Order extends Model
         'state',
         'postal_code',
         'total',
-        'items',
-    ];
-
-    protected $casts = [
-        'items' => 'array',
     ];
 
     public function orderItems(){

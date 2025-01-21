@@ -57,6 +57,13 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
+                                        <label>State<span>*</span></label>
+                                        <input type="text" name="state" value="{{ old('state') }}" required>
+                                        @error('state') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
                                         <label>Postal Code<span>*</span></label>
                                         <input type="text" name="postal_code" value="{{ old('postal_code') }}" required>
                                         @error('postal_code') <span class="text-danger">{{ $message }}</span> @enderror

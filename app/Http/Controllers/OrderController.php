@@ -24,19 +24,26 @@ class OrderController extends Controller
            'address' => 'required',
            'city' => 'required',
            'postal_code' => 'required',
+            'state' => 'required',
         ]);
 
+        $user = auth()->check() ? auth()->user()->id : null;
+
         $order = Order::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => $user,
             'firstname' => $validatedData['firstname'],
             'lastname' => $validatedData['lastname'],
             'email' => $validatedData['email'],
             'phone' => $validatedData['phone'],
             'address' => $validatedData['address'],
             'city' => $validatedData['city'],
+            'state' => $validatedData['state'],
             'postal_code' => $validatedData['postal_code'],
             'total' => $this->calculateTotal(),
         ]);
+
+
+
 
         $cartItems = session()->get('cart', []);
 
